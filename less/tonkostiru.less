@@ -1,0 +1,116 @@
+@import "variables";
+
+@width-true: (@base-width - @width-border*2);
+
+* {
+  text-decoration: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  //align-items: stretch;
+  //align-content: stretch;
+  flex-wrap: wrap;
+}
+
+.info-card {
+  position: relative;
+  width: 240px;
+  margin: 10px 10px;
+
+
+  figure {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 20;
+    padding:0;
+    margin:0;
+    img {
+      width: 50px;
+      height:50px;
+    }
+  }
+
+  header,
+  footer {
+    display: block;
+    width: @width-true;
+    border:  @width-border solid @color-border;
+    a {
+      display: block;
+      color: @color-text;
+      font-family: @font-family;
+    }
+  }
+
+  header {
+    height: 35px - @width-border;
+    border-bottom: none;
+    a {
+      padding: 15px 16px 0 80px;
+      font-size: @base-size;
+      overflow: hidden;
+      white-space: nowrap;  //Запрещаем перенос строк
+      text-overflow: ellipsis; //Текст обрезается и к концу строки добавляется многоточие.
+    }
+  }
+
+  footer {
+    border-top: none;
+    a {
+      font-size: @base-size*1.5;
+      padding: 15px 16px 15px 20px;
+    }
+  }
+
+  aside {
+    position: relative;
+    width: 240px;
+    height: 160px;
+    div {
+      position: absolute;
+      top:0;
+      left:0;
+      width: 240px;
+      height: 160px;
+    }
+    & div:first-child {
+      z-index: 1;
+    }
+    & div:nth-child(2) {
+      z-index: 2;
+      //background: -webkit-linear-gradient(#ffffff, #022835);
+      //opacity: 0.8;
+      background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,9,12,0) 22%, rgba(1,19,25,0.65) 57%, rgba(2,40,53,0.65) 100%);
+      background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,9,12,0) 22%,rgba(1,19,25,0.65) 57%,rgba(2,40,53,0.65) 100%);
+      background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,9,12,0) 22%,rgba(1,19,25,0.65) 57%,rgba(2,40,53,0.65) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6022835',GradientType=0 );
+
+    }
+    & div:last-child {
+      z-index: 3;
+      display: table;
+      span {
+        display: table-cell;
+        vertical-align: bottom;
+        margin-bottom: -10px;
+        padding-left: 20px;
+        color: #fff;
+        font: 47px 'Roboto', sans-serif;
+        font-weight: 100;
+        line-height: 30px;
+        strong {
+          font-weight: 900;
+        }
+      }
+    }
+
+  }
+
+}
+
+
+
+
